@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUEUR hair atelier | 表参道の隠れ家ヘアサロン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F6F2EC; --cream2:#EFE9E0; --ink:#1C1916; --ink-soft:#4A443D;
+  --bronze:#A9713F; --line:#DCD4C8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;font-weight:300;line-height:1.9;letter-spacing:.04em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.serif{font-family:'Cormorant Garamond',serif}
+.mincho{font-family:'Shippori Mincho',serif}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:28px 48px;mix-blend-mode:normal;transition:background .4s,padding .4s}
+nav.scrolled{background:rgba(246,242,236,.92);backdrop-filter:blur(12px);padding:16px 48px;border-bottom:1px solid var(--line)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.32em;font-weight:500}
+.nav-links{display:flex;gap:36px;font-size:12px;letter-spacing:.22em}
+.nav-links a{position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ink);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{border:1px solid var(--ink);background:rgba(246,242,236,.88);padding:10px 26px;font-size:11px;letter-spacing:.28em;transition:background .3s,color .3s;cursor:pointer}
+.nav-cta:hover{background:var(--ink);color:var(--cream)}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.15fr 1fr;align-items:stretch}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:140px 6vw 80px 48px}
+.hero-en{font-size:clamp(56px,7.5vw,118px);line-height:1.02;font-weight:400;letter-spacing:.01em}
+.hero-en em{font-style:italic;color:var(--bronze)}
+.hero-ja{margin-top:36px;font-size:15px;letter-spacing:.28em;color:var(--ink-soft)}
+.hero-meta{margin-top:64px;display:flex;gap:48px;font-size:11px;letter-spacing:.2em;color:var(--ink-soft)}
+.hero-meta span{display:block;border-top:1px solid var(--line);padding-top:12px;min-width:120px}
+.hero-img{position:relative;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 8s ease-out}
+body.loaded .hero-img img{transform:scale(1)}
+.hero-scroll{position:absolute;bottom:40px;left:48px;font-size:10px;letter-spacing:.3em;color:var(--ink-soft);display:flex;align-items:center;gap:14px}
+.hero-scroll::after{content:"";width:60px;height:1px;background:var(--ink-soft);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+
+/* ---------- marquee ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:22px 0;background:var(--cream)}
+.marquee-track{display:flex;gap:64px;width:max-content;animation:scroll 30s linear infinite;font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.26em;color:var(--ink-soft);white-space:nowrap}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding:140px 48px}
+.sec-label{font-size:11px;letter-spacing:.34em;color:var(--bronze);display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.sec-label::before{content:"";width:40px;height:1px;background:var(--bronze)}
+h2{font-family:'Shippori Mincho',serif;font-size:clamp(26px,3vw,40px);font-weight:500;letter-spacing:.12em;line-height:1.6}
+
+/* concept */
+.concept{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center;max-width:1280px;margin:0 auto}
+.concept p{margin-top:32px;font-size:14px;color:var(--ink-soft);max-width:42em}
+.concept-img{position:relative}
+.concept-img img{aspect-ratio:3/4;object-fit:cover}
+.concept-img::after{content:"LUEUR — since 2020";position:absolute;right:-14px;top:0;writing-mode:vertical-rl;font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.3em;color:var(--ink-soft)}
+
+/* menu */
+.menu{background:var(--ink);color:var(--cream)}
+.menu .sec-label{color:#C9995F}
+.menu .sec-label::before{background:#C9995F}
+.menu h2{color:var(--cream)}
+.menu-grid{max-width:960px;margin:72px auto 0}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:26px 8px;border-bottom:1px solid rgba(246,242,236,.16);transition:padding-left .3s;cursor:default}
+.menu-item:hover{padding-left:20px}
+.menu-item .name{font-size:15px;letter-spacing:.14em}
+.menu-item .name small{display:block;font-size:11px;color:rgba(246,242,236,.55);letter-spacing:.08em;margin-top:4px}
+.menu-item .price{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.06em;color:#C9995F}
+.menu-note{max-width:960px;margin:28px auto 0;font-size:11px;color:rgba(246,242,236,.5);letter-spacing:.1em}
+
+/* gallery */
+.gallery{padding-left:0;padding-right:0}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:72px}
+.gallery-grid figure{overflow:hidden;aspect-ratio:4/5}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.6,.2,1);filter:saturate(.85)}
+.gallery-grid figure:hover img{transform:scale(1.05)}
+.gallery-head{padding:0 48px;display:flex;justify-content:space-between;align-items:flex-end;max-width:none}
+
+/* stylist */
+.stylist{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center;max-width:1280px;margin:0 auto}
+.stylist-img img{aspect-ratio:4/5;object-fit:cover}
+.stylist blockquote{font-family:'Shippori Mincho',serif;font-size:20px;line-height:2.2;letter-spacing:.1em;margin-top:40px}
+.stylist .sign{margin-top:32px;font-size:12px;color:var(--ink-soft);letter-spacing:.2em}
+.stylist .sign b{font-size:16px;letter-spacing:.3em;font-weight:500;display:block;margin-top:6px}
+
+/* info */
+.info{background:var(--cream2)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8vw;max-width:1280px;margin:72px auto 0}
+.info dl{display:grid;grid-template-columns:110px 1fr;row-gap:20px;font-size:13px;color:var(--ink-soft)}
+.info dt{letter-spacing:.2em;color:var(--ink)}
+.info-map{background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;font-size:11px;letter-spacing:.3em}
+
+/* cta / footer */
+.cta{background:var(--ink);color:var(--cream);text-align:center;padding:160px 48px}
+.cta h2{color:var(--cream)}
+.cta .en{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6vw,84px);font-weight:400;line-height:1.1}
+.cta .en em{font-style:italic;color:#C9995F}
+.cta-btn{display:inline-block;margin-top:56px;border:1px solid var(--cream);padding:20px 72px;font-size:12px;letter-spacing:.34em;transition:background .3s,color .3s;cursor:pointer}
+.cta-btn:hover{background:var(--cream);color:var(--ink)}
+footer{background:var(--ink);color:rgba(246,242,236,.45);padding:40px 48px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.18em;border-top:1px solid rgba(246,242,236,.12)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.6,.2,1)}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none}.marquee-track{animation:none}.hero-img img{transition:none}}
+
+@media (max-width:900px){
+  nav{padding:20px 24px}
+  nav.scrolled{padding:14px 24px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-text{padding:140px 24px 60px}
+  .hero-img{aspect-ratio:4/3}
+  .hero-scroll{display:none}
+  section{padding:90px 24px}
+  .concept,.stylist,.info-grid{grid-template-columns:1fr;gap:48px}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-head{padding:0 24px;flex-direction:column;align-items:flex-start;gap:16px}
+  footer{flex-direction:column;gap:10px;padding:32px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo">LUEUR</div>
+  <div class="nav-links">
+    <a href="#concept">CONCEPT</a><a href="#menu">MENU</a><a href="#gallery">GALLERY</a><a href="#stylist">STYLIST</a><a href="#access">ACCESS</a>
+  </div>
+  <a class="nav-cta" href="#reserve">RESERVE</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-text">
+    <h1 class="serif hero-en">Quiet<br>beauty,<br><em>made yours.</em></h1>
+    <p class="hero-ja mincho">髪から始まる、静かな自信を。<br>表参道の路地裏、大人のための隠れ家サロン。</p>
+    <div class="hero-meta">
+      <span>OMOTESANDO<br>TOKYO</span>
+      <span>COMPLETELY<br>PRIVATE SALON</span>
+      <span>TUE — SUN<br>10:00 – 20:00</span>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=1200&q=80" alt="LUEURの店内。黒を基調に丸鏡が並ぶスタイリングスペース">
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>HAIR</span><span>—</span><span>SPA</span><span>—</span><span>COLOR</span><span>—</span><span>TREATMENT</span><span>—</span><span>LUEUR OMOTESANDO</span><span>—</span>
+    <span>HAIR</span><span>—</span><span>SPA</span><span>—</span><span>COLOR</span><span>—</span><span>TREATMENT</span><span>—</span><span>LUEUR OMOTESANDO</span><span>—</span>
+  </div>
+</div>
+
+<section id="concept">
+  <div class="concept">
+    <div class="reveal">
+      <p class="sec-label">CONCEPT</p>
+      <h2>「似合う」の一歩先へ。<br>あなたの輪郭に、光を。</h2>
+      <p>LUEUR（リュエール）はフランス語で「ほのかな光」。骨格・髪質・ライフスタイルまで丁寧に読み解き、朝のスタイリングが3分で決まる“再現性のある美しさ”を設計します。完全予約制・半個室。あなたのためだけの2時間を。</p>
+    </div>
+    <div class="concept-img reveal">
+      <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=900&q=80" alt="スタイリストが女性の髪を仕上げている様子">
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div style="max-width:960px;margin:0 auto">
+    <p class="sec-label">MENU</p>
+    <h2>Price List</h2>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-item reveal"><div class="name">カット<small>骨格診断・スタイリングレクチャー込み</small></div><div class="price">¥7,700</div></div>
+    <div class="menu-item reveal"><div class="name">カット + カラー<small>イルミナ / オーガニックカラー選択可</small></div><div class="price">¥15,400</div></div>
+    <div class="menu-item reveal"><div class="name">髪質改善トリートメント<small>酸熱 / ケラチン 4STEP</small></div><div class="price">¥12,100</div></div>
+    <div class="menu-item reveal"><div class="name">ヘッドスパ 40min<small>炭酸泉 + 頭皮診断</small></div><div class="price">¥8,800</div></div>
+    <div class="menu-item reveal"><div class="name">プレミアムコース<small>カット + カラー + トリートメント + スパ</small></div><div class="price">¥26,400</div></div>
+  </div>
+  <p class="menu-note">※ 全て税込・指名料込み。初回のお客様は全メニュー20%OFF。</p>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="gallery-head">
+    <div>
+      <p class="sec-label">GALLERY</p>
+      <h2>Salon &amp; Works</h2>
+    </div>
+    <p style="font-size:12px;color:var(--ink-soft);letter-spacing:.16em">Instagram @lueur_omotesando</p>
+  </div>
+  <div class="gallery-grid">
+    <figure class="reveal"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="モノトーンの店内に並ぶセット面" loading="lazy"></figure>
+    <figure class="reveal"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800&q=80" alt="ブロードライで髪を仕上げる手元" loading="lazy"></figure>
+    <figure class="reveal"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80" alt="鏡の前に並ぶクラシックなサロンチェア" loading="lazy"></figure>
+  </div>
+</section>
+
+<section id="stylist">
+  <div class="stylist">
+    <div class="stylist-img reveal">
+      <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=900&q=80" alt="オーナースタイリストが施術する様子" loading="lazy">
+    </div>
+    <div class="reveal">
+      <p class="sec-label">STYLIST</p>
+      <h2>切るのは髪、<br>整えるのは日々。</h2>
+      <blockquote>「サロンにいる2時間より、<br>それからの2ヶ月を美しく。」</blockquote>
+      <p style="margin-top:28px;font-size:13px;color:var(--ink-soft)">表参道・青山の有名店で12年、のべ4万人を担当。海外コレクションのバックステージ経験を経て2020年に独立。</p>
+      <p class="sign">OWNER STYLIST<b>MIZUKI SAKAMOTO</b></p>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="access">
+  <div style="max-width:1280px;margin:0 auto">
+    <p class="sec-label">ACCESS</p>
+    <h2>Information</h2>
+  </div>
+  <div class="info-grid">
+    <dl class="reveal">
+      <dt>店名</dt><dd>LUEUR hair atelier（リュエール）</dd>
+      <dt>住所</dt><dd>東京都渋谷区神宮前 5-XX-X 2F<br>表参道駅 A1出口より徒歩4分</dd>
+      <dt>営業時間</dt><dd>10:00 – 20:00（最終受付 18:30）</dd>
+      <dt>定休日</dt><dd>毎週月曜・第2火曜</dd>
+      <dt>電話</dt><dd>03-XXXX-XXXX</dd>
+      <dt>支払い</dt><dd>各種クレジット / QR決済 / 現金</dd>
+    </dl>
+    <div class="info-map reveal">GOOGLE MAP AREA</div>
+  </div>
+</section>
+
+<section class="cta" id="reserve">
+  <p class="serif en reveal">Your seat is <em>waiting.</em></p>
+  <p class="reveal" style="margin-top:32px;font-size:13px;letter-spacing:.2em;color:rgba(246,242,236,.7)">ご予約はWEBから24時間受付。<br>初回カウンセリングは無料です。</p>
+  <a class="cta-btn reveal" href="#" onclick="return false">WEB RESERVATION</a>
+</section>
+
+<footer>
+  <span>LUEUR hair atelier — OMOTESANDO, TOKYO</span>
+  <span>© 2026 LUEUR. This is a design sample.</span>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+addEventListener('load',()=>document.body.classList.add('loaded'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
