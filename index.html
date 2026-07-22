@@ -31,6 +31,10 @@ header p{font-size:12px;color:var(--muted);letter-spacing:.2em;text-align:right}
 .work:hover .arrow svg{stroke:#111013;transform:translateX(2px)}
 .thumb{position:absolute;right:14%;top:50%;transform:translateY(-50%) scale(.92);width:240px;aspect-ratio:4/3;object-fit:cover;opacity:0;transition:.5s cubic-bezier(.2,.6,.2,1);pointer-events:none;z-index:1}
 .work:hover .thumb{opacity:1;transform:translateY(-50%) rotate(-2deg)}
+.cms-banner{display:flex;align-items:center;gap:14px;padding:20px 6vw;border-bottom:1px solid var(--line);font-size:13px;letter-spacing:.1em;color:var(--text);transition:background .3s;cursor:pointer}
+.cms-banner:hover{background:rgba(196,161,90,.08)}
+.cms-banner .tag{flex-shrink:0;border:1px solid var(--gold);color:var(--gold);font-size:10px;letter-spacing:.2em;padding:5px 12px}
+.cms-banner .go{margin-left:auto;color:var(--gold);white-space:nowrap}
 footer{padding:44px 6vw;display:flex;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.2em}
 @media (max-width:900px){
   header{flex-direction:column;align-items:flex-start;gap:16px;padding:48px 24px 32px}
@@ -46,6 +50,11 @@ footer{padding:44px 6vw;display:flex;justify-content:space-between;font-size:11p
   <h1 class="serif">Selected <em>Works</em></h1>
   <p>WEB DESIGN SAMPLES — 2026<br>すべて架空店舗のデザインサンプルです</p>
 </header>
+<a class="cms-banner" href="editor.html">
+  <span class="tag">NEW</span>
+  <span>納品後は、料金やお知らせを<strong>お客様ご自身で</strong>スマホから更新できます</span>
+  <span class="go">編集を体験してみる →</span>
+</a>
 <main class="works">
   <a class="work" href="salon.html">
     <span class="num">01</span>

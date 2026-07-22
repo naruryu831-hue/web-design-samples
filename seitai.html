@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script src="cms.js" defer></script>
 <style>
 :root{
   --ivory:#F8F6F1; --paper:#FFFFFF; --sage:#6E7F6C; --sage-deep:#3D4A3B;
@@ -42,6 +43,8 @@ nav.scrolled{background:rgba(248,246,241,.95);backdrop-filter:blur(10px);box-sha
 .hero-badges{display:flex;gap:12px;margin-top:44px;flex-wrap:wrap}
 .badge{background:var(--paper);border:1px solid var(--line);padding:10px 22px;font-size:12px;letter-spacing:.12em;color:var(--sage-deep);display:flex;align-items:center;gap:8px}
 .badge svg{width:15px;height:15px;stroke:var(--gold)}
+.hero-notice{display:inline-flex;align-items:baseline;gap:14px;margin-top:32px;background:rgba(255,255,255,.85);border-left:3px solid var(--gold);padding:14px 22px;font-size:13px;color:var(--gray);max-width:34em}
+.hero-notice b{font-weight:500;color:var(--sage-deep);letter-spacing:.14em;white-space:nowrap}
 .hero-cta{display:flex;gap:16px;margin-top:44px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 44px;font-size:14px;letter-spacing:.16em;transition:.3s;cursor:pointer}
 .btn-primary{background:var(--sage-deep);color:#fff}
@@ -174,6 +177,7 @@ footer{padding:36px 44px;text-align:center;font-size:11px;color:var(--gray);lett
       <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>のべ3万人の施術実績</span>
       <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>北千住駅 徒歩3分</span>
     </div>
+    <div class="hero-notice reveal on"><b>お知らせ</b><span data-cms="notice">7月は初回体験キャンペーン中。今月のご予約枠は残りわずかです。</span></div>
     <div class="hero-cta reveal on">
       <a class="btn btn-primary" href="#" onclick="return false">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -254,19 +258,19 @@ footer{padding:36px 44px;text-align:center;font-size:11px;color:var(--gray);lett
   <div class="price-cards">
     <div class="pcard reveal">
       <h3>整体 スタンダード</h3>
-      <p class="yen">¥6,600<small> /約40分</small></p>
+      <p class="yen"><span data-cms="price_standard">¥6,600</span><small> /約40分</small></p>
       <p>2回目以降の基本メニュー。検査 + 施術 + セルフケア指導。</p>
     </div>
     <div class="pcard featured reveal">
       <span class="tag">初回限定</span>
       <h3>初回体験コース</h3>
       <p class="strike">通常 ¥8,800</p>
-      <p class="yen">¥3,980<small> /約60分</small></p>
+      <p class="yen"><span data-cms="price_first">¥3,980</span><small> /約60分</small></p>
       <p>カウンセリング + 検査 + 施術 + 施術計画。1日2名様まで。</p>
     </div>
     <div class="pcard reveal">
       <h3>骨盤矯正 集中</h3>
-      <p class="yen">¥7,700<small> /約50分</small></p>
+      <p class="yen"><span data-cms="price_pelvis">¥7,700</span><small> /約50分</small></p>
       <p>産後・姿勢改善に。EMS併用のオプションもご用意。</p>
     </div>
   </div>
@@ -310,8 +314,8 @@ footer{padding:36px 44px;text-align:center;font-size:11px;color:var(--gray);lett
     <dl class="reveal">
       <dt>院名</dt><dd>整体院 和音 -WAON-</dd>
       <dt>住所</dt><dd>東京都足立区千住 2-XX-X 1F<br>北千住駅 西口より徒歩3分</dd>
-      <dt>受付時間</dt><dd>平日 9:00–20:00 / 土日祝 9:00–17:00</dd>
-      <dt>定休日</dt><dd>水曜日</dd>
+      <dt>受付時間</dt><dd data-cms="hours">平日 9:00–20:00 / 土日祝 9:00–17:00</dd>
+      <dt>定休日</dt><dd data-cms="holiday">水曜日</dd>
       <dt>電話</dt><dd>03-XXXX-XXXX（施術中は折り返します）</dd>
       <dt>駐車場</dt><dd>提携コインパーキングあり（30分無料券）</dd>
     </dl>

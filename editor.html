@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>かんたん更新システム（体験デモ） | 整体院 和音</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#F8F6F1;--paper:#fff;--sage:#6E7F6C;--sage-deep:#3D4A3B;--ink:#26292B;--gray:#5C6159;--line:#E3DFD5;--gold:#B29767}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ivory);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.9;letter-spacing:.04em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding:40px 20px 80px}
+header h1{font-family:'Zen Old Mincho',serif;font-size:22px;font-weight:600;letter-spacing:.16em;line-height:1.7}
+header .sub{font-size:11px;letter-spacing:.3em;color:var(--gold);margin-bottom:10px}
+.note{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--gold);padding:16px 18px;font-size:12px;color:var(--gray);margin:24px 0 32px}
+.note b{color:var(--sage-deep);font-weight:500}
+.field{background:var(--paper);border:1px solid var(--line);padding:20px;margin-bottom:14px}
+.field label{display:block;font-size:12px;letter-spacing:.18em;color:var(--sage-deep);font-weight:500;margin-bottom:10px}
+.field input,.field textarea{width:100%;border:1px solid var(--line);background:var(--ivory);padding:13px 14px;font-size:16px;font-family:inherit;color:var(--ink);border-radius:2px}
+.field input:focus,.field textarea:focus{outline:2px solid var(--sage);border-color:var(--sage)}
+.field textarea{resize:vertical;min-height:74px}
+.field .hint{font-size:11px;color:var(--gray);margin-top:8px}
+.btns{display:grid;gap:12px;margin-top:28px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:17px;font-size:14px;letter-spacing:.14em;cursor:pointer;border:none;font-family:inherit;transition:.25s;text-decoration:none;text-align:center}
+.btn-save{background:var(--sage-deep);color:#fff}
+.btn-save:hover{background:var(--sage)}
+.btn-view{background:#fff;border:1px solid var(--sage-deep);color:var(--sage-deep)}
+.btn-view:hover{background:var(--sage-deep);color:#fff}
+.btn-reset{background:none;color:var(--gray);font-size:12px;text-decoration:underline;cursor:pointer;border:none;font-family:inherit;padding:8px}
+.saved{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(80px);background:var(--sage-deep);color:#fff;padding:12px 28px;border-radius:999px;font-size:13px;letter-spacing:.1em;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .35s cubic-bezier(.2,.6,.2,1);pointer-events:none}
+.saved.on{transform:translateX(-50%) translateY(0)}
+a.back{display:inline-block;margin-top:36px;font-size:12px;color:var(--gray);letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="sub">EASY UPDATE — DEMO</p>
+    <h1>かんたん更新システム<br>（体験デモ）</h1>
+  </header>
+
+  <p class="note"><b>これは営業用の体験デモです。</b>下の項目を書き換えて保存すると、サイトのプレビューに反映されます（この端末の中だけ）。実際の納品では、お店の方がスマホから同じ操作をするだけで<b>本物のサイトが更新</b>されます。難しい知識は一切不要です。</p>
+
+  <div class="field">
+    <label for="f-notice">お知らせ（トップに表示）</label>
+    <textarea id="f-notice" data-key="notice"></textarea>
+    <p class="hint">例：8月13〜15日はお盆休みをいただきます</p>
+  </div>
+  <div class="field">
+    <label for="f-price_first">初回体験コースの価格</label>
+    <input id="f-price_first" data-key="price_first" type="text">
+    <p class="hint">「¥」まで含めて入力（例：¥4,500）</p>
+  </div>
+  <div class="field">
+    <label for="f-price_standard">整体スタンダードの価格</label>
+    <input id="f-price_standard" data-key="price_standard" type="text">
+  </div>
+  <div class="field">
+    <label for="f-price_pelvis">骨盤矯正 集中の価格</label>
+    <input id="f-price_pelvis" data-key="price_pelvis" type="text">
+  </div>
+  <div class="field">
+    <label for="f-hours">受付時間</label>
+    <input id="f-hours" data-key="hours" type="text">
+  </div>
+  <div class="field">
+    <label for="f-holiday">定休日</label>
+    <input id="f-holiday" data-key="holiday" type="text">
+  </div>
+
+  <div class="btns">
+    <button class="btn btn-save" id="save">保存する</button>
+    <a class="btn btn-view" href="seitai.html?preview">サイトで確認する</a>
+    <button class="btn-reset" id="reset">元の内容に戻す</button>
+  </div>
+
+  <a class="back" href="index.html">← 作品一覧に戻る</a>
+</div>
+
+<div class="saved" id="saved">保存しました。「サイトで確認する」を押してください</div>
+
+<script>
+const KEY='sample-cms-content';
+const DEFAULTS={
+  notice:'7月は初回体験キャンペーン中。今月のご予約枠は残りわずかです。',
+  price_first:'¥3,980',
+  price_standard:'¥6,600',
+  price_pelvis:'¥7,700',
+  hours:'平日 9:00–20:00 / 土日祝 9:00–17:00',
+  holiday:'水曜日'
+};
+let saved={};
+try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+document.querySelectorAll('[data-key]').forEach(el=>{
+  const k=el.getAttribute('data-key');
+  el.value=(saved[k]!=null&&saved[k]!=='')?saved[k]:DEFAULTS[k];
+});
+document.getElementById('save').addEventListener('click',()=>{
+  const out={};
+  document.querySelectorAll('[data-key]').forEach(el=>{out[el.getAttribute('data-key')]=el.value.trim()});
+  localStorage.setItem(KEY,JSON.stringify(out));
+  const t=document.getElementById('saved');
+  t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),2600);
+});
+document.getElementById('reset').addEventListener('click',()=>{
+  localStorage.removeItem(KEY);
+  document.querySelectorAll('[data-key]').forEach(el=>{el.value=DEFAULTS[el.getAttribute('data-key')]});
+});
+</script>
+</body>
+</html>
